@@ -23,10 +23,14 @@ main: func {
     }
 
     "Total length: %d" printfln(total)
-    "Number of A:  %d (%.2f%%)" printfln(counts[0], (counts[0] as Float) * 100.0 / (total as Float))
-    "Number of T:  %d (%.2f%%)" printfln(counts[1], (counts[1] as Float) * 100.0 / (total as Float))
-    "Number of C:  %d (%.2f%%)" printfln(counts[2], (counts[2] as Float) * 100.0 / (total as Float))
-    "Number of G:  %d (%.2f%%)" printfln(counts[3], (counts[3] as Float) * 100.0 / (total as Float))
+    print := func (name: String, value: Int) {
+        "Number of %s:  %d (%.2f%%)" printfln(name, value, (value as Float) * 100.0 / (total as Float))
+    }
+
+    print("A", counts[0])
+    print("T", counts[1])
+    print("C", counts[2])
+    print("G", counts[3])
 
 }
 
